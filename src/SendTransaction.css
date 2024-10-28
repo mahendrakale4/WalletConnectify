@@ -1,0 +1,58 @@
+.send-transaction-container {
+  background: linear-gradient(145deg, #f0f0f0, #ffffff);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 2rem auto;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.send-transaction-container:hover {
+  transform: translateY(-5px);
+}
+
+.send-transaction-container input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.send-transaction-container input:focus {
+  border-color: #6200ea;
+  outline: none;
+}
+
+.send-transaction-container button {
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.send-transaction-container button:hover {
+  background-color: #3700b3;
+  transform: scale(1.05);
+}
+
+.send-transaction-container button:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(98, 0, 234, 0.5);
+}
+
+.transaction-hash {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #777;
+}
