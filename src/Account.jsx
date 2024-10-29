@@ -1,9 +1,14 @@
+// import React, { useEffect } from "react";
+import { useAccount, useBalance, useDisconnect } from "wagmi";
+import "./Account.css"; // Import the CSS file
 import {
-  useAccount,
-  useBalance,
-  useDisconnect,
-} from "wagmi";
-import './Account.css'; // Import the CSS file
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  useNavigate,
+} from "react-router-dom";
+import { useEffect } from "react";
 
 export function Account() {
   const { address, connector } = useAccount();
@@ -19,6 +24,21 @@ export function Account() {
   });
 
   const walletName = connector?.name || "Unknown Wallet";
+  const navigate = useNavigate();
+  const { isConnected } = useAccount();
+
+
+
+  async function DisconnectandNavi() {
+    await disconnect();
+    navigate("/wo");
+  }
+  // UseEffect
+  useEffect(() => {
+    if (!isConnected) {
+      navigate("/wo");
+    }
+  }, [isConnected, navigate]);
 
   return (
     <div className="account-container">
@@ -35,7 +55,12 @@ export function Account() {
           )}
         </div>
       )}
-      <button className="disconnect-button" onClick={() => disconnect()}>Disconnect</button>
+      {/* <button className="disconnect-button" onClick={() => disconnect()}>
+        Disconnect
+      </button> */}
+      <button className="disconnect-button" onClick={DisconnectandNavi}>
+        Disconnect
+      </button>
     </div>
   );
 }
